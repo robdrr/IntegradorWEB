@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Analizador de Enfermedad Hepática</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            border-radius: 15px 15px 0 0 !important;
+            border-bottom: none;
+        }
+        .contact-form {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        .form-control {
+            border-radius: 8px;
+            border: 2px solid #e4e7eb;
+            padding: 12px;
+            transition: all 0.3s;
+        }
+        .form-control:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.25);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            border: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-liver me-2"></i>Analizador Hepático</h3>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{{ url_for('index') }}">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('documentation') }}">
+                        <i class="fas fa-book"></i>
+                        <span>Documentación</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('tutorial') }}">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Tutorial</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('contact') }}" class="active">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contacto</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <p class="text-center text-white-50 small mb-0">
+                <i class="fas fa-code me-1"></i> v1.0.0
+            </p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-liver me-2"></i>
+                    Analizador de Enfermedad Hepática
+                </a>
+            </div>
+        </nav> -->
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-envelope me-2"></i>Contacto</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-info mb-4">
+                                <h4 class="text-primary"><i class="fas fa-info-circle me-2"></i>Información de Contacto</h4>
+                                <p>Si tienes alguna pregunta o sugerencia sobre el Analizador de Enfermedad Hepática, no dudes en contactarnos.</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-3">
+                                        <i class="fas fa-envelope me-2 text-primary"></i>
+                                        correo@ejemplo.com
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-phone me-2 text-primary"></i>
+                                        +52 (123) 456-7890
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-location-dot me-2 text-primary"></i>
+                                        Ciudad, Estado, País
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <form class="contact-form" method="POST" action="{{ url_for('contact') }}">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Asunto</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    /* Estilos actualizados para la barra lateral */
+    .sidebar {
+        background: #f8f9fa;
+        min-height: 100vh;
+        width: 250px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding: 1.5rem;
+        box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-header {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        margin-bottom: 1.5rem;
+    }
+
+    .sidebar-header h3 {
+        color: #1a237e;
+        font-size: 1.5rem;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .sidebar-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-menu ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .sidebar-menu ul li a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        color: #3949ab;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-menu ul li a:hover,
+    .sidebar-menu ul li a.active {
+        background: #e8eaf6;
+        color: #1a237e;
+        transform: translateX(5px);
+    }
+
+    .sidebar-menu ul li a i {
+        margin-right: 1rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    /* Estilos actualizados para la navbar */
+    .navbar {
+        background: linear-gradient(135deg, #1a237e 0%, #283593 100%) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    .navbar-brand {
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+
+    /* Ajuste del contenido principal */
+    .main-content {
+        margin-left: 250px;
+        padding: 1rem;
+        min-height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
+        
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        
+        .main-content, .navbar {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+</style>
+</html>
