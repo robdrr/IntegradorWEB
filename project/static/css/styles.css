@@ -25,6 +25,13 @@ body {
 }
 
 /* Sidebar mejorado */
+.logo {
+    height: 3rem;
+    width: 3rem;
+    object-fit: contain;
+    margin-right: 0.5rem;
+}
+
 .sidebar {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     min-height: 100vh;
@@ -42,6 +49,8 @@ body {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .sidebar-header h3 {
